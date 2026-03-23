@@ -20,7 +20,87 @@
 <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
 <link rel="manifest" href="favicon/site.webmanifest">
 </head>
+<style>
+    .modern-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
 
+.form-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    color: #777;
+    font-size: 14px;
+    transition: 0.3s;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group textarea:focus + label,
+.form-group textarea:valid + label,
+.form-group select:focus + label,
+.form-group select:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: #25D366;
+}
+
+textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #25D366;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #1ebe5d;
+}
+</style>
 <body>
 
     <!-- Top Bar -->
@@ -90,31 +170,52 @@
             </div>
 
             <!-- Form -->
-            <div class="contact-form">
-                <form id="whatsappForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" required placeholder="Ex. John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Interested In</label>
-                        <select id="service" required>
-                            <option value="" disabled selected>Select a Service</option>
-                            <option value="Accounts">Accounts</option>
-                            <option value="Auditing">Auditing</option>
-                            <option value="CA Services">CA Services</option>
-                            <option value="Business Consultancy">Business Consultancy</option>
-                            <option value="Payroll">Payroll</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" required placeholder="Tell us about your requirements..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
-                </form>
+           <div class="contact-form modern-form">
+    <form id="whatsappForm">
+
+        <h3 class="form-title">Quick Enquiry</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <input type="text" id="name" required>
+                <label>Your Name</label>
             </div>
+
+            <div class="form-group">
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="subject" required>
+            <label>Subject</label>
+        </div>
+
+        <div class="form-group">
+            <select id="service" required>
+                <option value="" disabled selected></option>
+                <option value="Accounts">Accounts</option>
+                <option value="Auditing">Auditing</option>
+                <option value="CA Services">CA Services</option>
+                <option value="Business Consultancy">Business Consultancy</option>
+                <option value="Payroll">Payroll</option>
+                <option value="Other">Other</option>
+            </select>
+            <label>Service</label>
+        </div>
+
+        <div class="form-group">
+            <textarea id="message" required></textarea>
+            <label>Project Details</label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+            <i class="fab fa-whatsapp"></i> Send Enquiry
+        </button>
+
+    </form>
+</div>
         </div>
     </section>
 
@@ -219,6 +320,37 @@
             window.open(whatsappUrl, '_blank');
         });
     </script>
+
+
+<script>
+document.getElementById("whatsappForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let service = document.getElementById("service").value;
+    let message = document.getElementById("message").value;
+
+    let whatsappMessage = `🏗 New Website Inquiry
+
+👤 Name: ${name}
+📧 Email: ${email}
+📌 Subject: ${subject}
+🛠 Service: ${service}
+
+📝 Project Details:
+${message}`;
+
+    let encodedMessage = encodeURIComponent(whatsappMessage);
+
+    let phoneNumber = "919663967304";
+
+    let url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(url, "_blank");
+});
+</script>
 </body>
 
 </html>
