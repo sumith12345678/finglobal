@@ -309,7 +309,13 @@ textarea {
     <script src="script.js"></script>
 
 
-
+    <script>
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 <script>
 document.getElementById("whatsappForm").addEventListener("submit", function(e) {
     e.preventDefault();
