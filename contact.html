@@ -105,10 +105,19 @@ textarea {
 
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="top-info">
-            <span><i class="fas fa-phone-alt"></i>+91 96639 67304</span>
-            <span><i class="fas fa-envelope"></i> info@finglobalinternational.com</span>
-        </div>
+       <div class="top-info">
+    <span>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+919663967304">+91 96639 67304</a>
+    </span>
+
+    <span>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:info@finglobalinternational.com">
+            info@finglobalinternational.com
+        </a>
+    </span>
+</div>
     </div>
 
     <!-- Header -->
@@ -220,10 +229,16 @@ textarea {
     </section>
 
     <!-- Google Map Placeholder -->
-    <section
-        style="height: 400px; width: 100%; background-color: #eee; display: flex; align-items: center; justify-content: center; color: #666;">
-        <p><i class="fas fa-map"></i> Google Map Integration (Palazhi, Kozhikode)</p>
-    </section>
+<section style="width: 100%;">
+    <iframe 
+        src="https://www.google.com/maps?q=FINGLOBAL%20APM%20Haji%20Tower%20Palazhi%20Kozhikode&output=embed"
+        width="100%" 
+        height="400" 
+        style="border:0;"
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+</section>
 
     <!-- Footer -->
     <footer>
@@ -282,8 +297,7 @@ textarea {
                 <ul>
                     <li><i class="fas fa-phone-alt"></i> +91 96639 67304</li>
                     <li><i class="fas fa-envelope"></i> info@finglobalinternational.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Palazhi, Pala, near Hilite Business Park, Kozhikode,
-                        Kerala, India</li>
+                    <li><i class="fas fa-map-marker-alt"></i>1st Floor, APM Haji Tower, Palazhi, Kozhikode, Kerala 673014</li>
                 </ul>
             </div>
         </div>
@@ -293,36 +307,7 @@ textarea {
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
 
-        // WhatsApp Form Handler
-        document.getElementById('whatsappForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-
-            const phoneNumber = "919663967304";
-
-            const text = `*New Enquiry from FinGlobal Website*%0a%0a` +
-                `*Name:* ${name}%0a` +
-                `*Email:* ${email}%0a` +
-                `*Service:* ${service}%0a` +
-                `*Message:* ${message}`;
-
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
-
-            window.open(whatsappUrl, '_blank');
-        });
-    </script>
 
 
 <script>
