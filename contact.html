@@ -305,13 +305,16 @@ textarea {
             e.preventDefault();
 
             const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
+            
 
             const phoneNumber = "919663967304";
 
             const text = `*New Enquiry from FinGlobal Website*%0a%0a` +
                 `*Name:* ${name}%0a` +
+                `*Email:* ${email}%0a` +
                 `*Service:* ${service}%0a` +
                 `*Message:* ${message}`;
 
